@@ -1,0 +1,68 @@
+# Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual Environment
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# SQLite database files
+*.sqlite3
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Ignore local settings
+local_settings.py
+
+# Media files
+media/
+
+# Compiled Python files
+*.pyc
+
+# Caches
+__pycache__/
+.cache/
+
+# Coverage directory used by coverage.py
+.coverage/
+
+# Translations
+*.mo
+
+# Django admin log
+log/
+
+# Ignore pipenv virtual environment
+/.venv/
+
+# Ignore pipfile.lock
+pipfile.lock
+
+# Ignore Docker files
+Dockerfile
+docker-compose.yml
+
+# Ignore Heroku files
+*.env
+.Python
+
