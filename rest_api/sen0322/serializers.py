@@ -15,7 +15,7 @@ class SEN0322Serializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         return {
             'id': instance.id,
-            'o2': instance.moisture,
+            'o2': instance.o2,
             'time': instance.time
         }
     
