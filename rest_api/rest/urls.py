@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from .views import get_logs
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bme680/", include("bme680.urls", "bme680")),
     path("mq9/", include("mq9.urls", "mq9")),
     path("sen0159/", include("sen0159.urls", "sen0159")),
+    path("logs/", get_logs, name="logs"),
 ]

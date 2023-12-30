@@ -4,6 +4,11 @@ from django.http.response import JsonResponse
 from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
 
+import logging
+from django.utils import timezone
+logger = logging.getLogger(__name__)
+
+
 from .models import BME680
 from .serializers import BME680Serializer
 
@@ -11,6 +16,7 @@ from .serializers import BME680Serializer
 @csrf_exempt
 @api_view(['GET', 'POST'])
 def real_time(request):
+    logger.info(f'GOT {request.method} TO {request.path} FROM {request.META["REMOTE_ADDR"]}')
     if request.method == 'GET':
         #return last record from database
         ser = BME680Serializer(BME680.objects.last())
@@ -18,6 +24,7 @@ def real_time(request):
     
     elif request.method == 'POST':
         #create new record
+        logger.info(f'GOT DATA {request.data}')
         ser = BME680Serializer(data=request.data)
         if ser.is_valid():
             ser.save()
@@ -29,6 +36,7 @@ def real_time(request):
 @csrf_exempt
 @api_view(['GET'])
 def history(request, last_of=0):
+    logger.info(f'GOT {request.method} TO {request.path} FROM {request.META["REMOTE_ADDR"]}')
     if request.method == 'GET':
         #if last_of is not specified, return all records
         if last_of == 0:
